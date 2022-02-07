@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Bookmarked Vendors</title>
+        <!-- CSS attachment goes here -->
+        <link rel="stylesheet" href="Master_style.css" text="text/css">
+    </head>
+    <body>
+        <!-- Include sidebar partial -Based on user type -->
+        <div class="banner">
+            <img src="RawText_HandyMan.png" width="450" height="150" style="margin-left: 125px;">
+            
+            <!-- float current logged in user next to the logo -->
+            <p style="font-weight: bold;">Currently logged in as user: 
+                <%= locals.user ? user : "Not logged in" %> <br>
+                Session ID is <%= locals.mySesh ? mySesh : "No Session" %> <br>
+            </p>    
+            <!-- Include sidebar partial -Based on user type -->
+            <% if(locals.accountType == 1) { %>
+            <%- include ("partials/Sidebar.ejs") %>
+            <% } %>
+            <% if(locals.accountType == 2) { %> 
+                <%- include ("partials/VendorSidebar.ejs") %>
+            <% } %>
+        </div>
+        <div class="main">
+            <!-- This page outputs the bookmarked vendors similarly to the search page, so I refactored the code -->
+            <!-- Here I output a div result of each vendor -->
+            <img src="BookmarkMe.png" width="24" height="24"><h1>Bookmarked Handymen</h1>
+
+            <% var i = 0; %> 
+            <% queryResultNames.forEach(function(x) { %>
+                <div class="searchResult">
+                    <h2><%= x %></h2>
+
+                    <p><span style="font-weight:bolder;"><%= queryResultPro1[i] %></span> <br>
+                    <%= queryResultStates[i] %> - <%= queryResultCities[i] %> - 
+                    <span style="color:mediumblue;"> <%= queryResultPhones[i] %></span> <br> 
+                    </p> 
+
+                    <!-- Same set of actions as earlier -->
+                    <div class="actions">
+                        <form action="/Favorite" method="post">
+                            <!-- Use a route parameter and then render the req.param as an ejs arguement -->
+                            <a href="/VendorPage/<%=queryResultIDs[i]%>"><img src="VendorInfo.png" id="InfoPageIcon" alt="To Vendor Page" width="24" height="24"></a>
+                            <!-- Astonishingly I can use EJS to make unique names and values here -->
+                            <input type="hidden" name="hID<%= i %>" value="<%= queryResultIDs[i]%>">
+                            <input type="image" src="BookmarkMe.png" id="BookmarkIcon" alt="submit" width="24" height="24">
+                        </form>
+                    </div>
+                    <% i++ %>
+                </div>
+                <hr>
+            <% }); %>
+          
+        
+        <p>Current Logged in user:</p>
+        <%= locals.user ? user : "Not logged in" %>
+        
+        <br>
+        <!-- <a href="/Home"><img src="Back.png" alt="Back to Search" width="24" height="24"></a> -->
+        </div>
+    </body> 
+</html>

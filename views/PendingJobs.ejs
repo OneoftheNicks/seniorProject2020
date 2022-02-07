@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Jobs</title>
+        <!-- CSS attachment goes here -->
+        <link rel="stylesheet" href="Master_style.css" text="text/css">
+    </head>
+    <body>
+        <!-- Include sidebar partial -Based on user type -->
+        <div class="banner">
+            <img src="RawText_HandyMan.png" width="450" height="150" style="margin-left: 125px;">
+            
+            <!-- float current logged in user next to the logo -->
+            <p style="font-weight: bold;">Currently logged in as user: 
+                <%= locals.user ? user : "Not logged in" %> <br>
+                Session ID is <%= locals.mySesh ? mySesh : "No Session" %> <br>
+            </p>        
+            <!-- Include sidebar partial -Based on user type -->
+            <% if(locals.accountType == 1) { %>
+            <%- include ("partials/Sidebar.ejs") %>
+            <% } %>
+            <% if(locals.accountType == 2) { %> 
+                <%- include ("partials/VendorSidebar.ejs") %>
+            <% } %>
+        </div>
+        <div class="main">
+            <h1><%= locals.pending ? "Pending Job Requests" : "Accepted Jobs" %></h1>
+
+            <% var i = 0; %> 
+            <% heldJobUser.forEach(function(x) { %>
+                <div class="searchResult">
+                    <h2>From: <%= x %></h2>
+
+                    <h2>Job Summary</h2>
+                    <p><%= locals.heldJobSummary[i] %> <br>
+                    <%= heldJobstarting[i] %> - <%= heldJobending[i] %>
+                    </p>
+
+                    <!-- create a shallow form action for removal of requests if this is the pending page -->
+                    <% if(locals.pending) { %>
+                        <div class="actions">
+                            <form action="/Approve" method="post">
+                                <p>Accept this request?</p>
+                                <input type="hidden" name="WhichJob" value="<%= locals.jobNumber[i] %>">
+                                <input type="image" src="Approve.png" id="JobAcception" alt="submit" width="24" height="24">
+                            </form>
+                            <form action="/Decline" method="post">
+                                <p>Decline this request?</p>
+                                <input type="hidden" name="WhichJob" value="<%= locals.jobNumber[i] %>">
+                                <input type="image" src="Reject.png" id="JobRection" alt="submit" width="24" height="24">
+                            </form>
+                        </div>
+                    <% } %>
+                    <% i++ %>
+                </div>
+                <hr>
+            <% }); %>
+        <br>
+        <!-- <a href="/Home"><img src="Back.png" alt="Back to Search" width="24" height="24"></a> -->
+        </div>
+    </body> 
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>All Users</title>
+        <link rel="stylesheet" href="Master_style.css" text="text/css">
+    </head>
+    <body>
+        <div class="main">
+            <h1>Here are all of the registered non-Vendor Users</h1>
+            <ui>
+            <% vendorData.forEach(function(x) { %>
+                <li><%= x %></li>
+            <% }); %>
+            </ui>
+            
+            <p>Current Logged in user:</p>
+            <%= locals.user ? user : "Not logged in" %>
+            <!--Insert partial template for the footer-->
+            <%- include ("partials/HandyNavFooter.ejs") %>
+        </div>
+    </body>
+</html>

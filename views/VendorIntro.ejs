@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Search Page</title>
+        <!-- CSS attachment goes here -->
+        <link rel="stylesheet" href="Master_style.css" text="text/css">
+    </head>
+    <body>
+        <!-- Make a fancy header here with a background -->
+        <div class="banner">
+        <img src="RawText_HandyMan.png" width="450" height="150" style="margin-left: 125px;">
+        
+        <!-- float current logged in user next to the logo -->
+        <p style="font-weight: bold;">Currently logged in as user: 
+            <%= locals.user ? user : "Not logged in" %> <br>
+            Session ID is <%= locals.mySesh ? mySesh : "No Session" %> <br>
+        </p>      
+        <!-- Include sidebar partial -Based on user type -->
+        <% if(locals.accountType == 1) { %>
+        <%- include ("partials/Sidebar.ejs") %>
+        <% } %>
+        <% if(locals.accountType == 2) { %> 
+            <%- include ("partials/VendorSidebar.ejs") %>
+        <% } %>
+        </div>
+        <!-- Main Page content -->
+        <div class="main">
+            <h1>Welcome!</h1>
+
+            <p>Since you're currently logged into a vendor account this page shows your how your account looks to 
+                other users on the website.<br> If you would like to search for other vendors and take advantage of the 
+                other features please make a normal 'user' account. <br> You can make one <a href="/UserCreation">here</a>
+                <br> <br>
+                On the left you should see your vendor sidebar, using the icons you can access editing and schedulling features.
+                <br>
+            </p>
+
+            <h2>Here is how you appear to others in search: </h2>
+            <div class="searchResult">
+                <!-- This is done so every result is styled so they have their own space -->
+                <h2><%= locals.myName %></h2>
+
+                <!-- Use a span with p tags to highlight certain values -->
+                <p><span style="font-weight:bolder;"><%= myPro1 %></span> <br>
+                <%= myState %> - <%= myCity %> - 
+                <span style="color:mediumblue;"> <%= myPhone %></span> <br> 
+                </p> 
+                
+                <!-- Here we use a form for post actions that will redirect -->
+                <p style="font-weight: bold;">Click this icon to see how your page looks publically:</p>
+                <div class="actions">
+                    <a href="/VendorPage/<%=myVID%>"><img src="VendorInfo.png" id="InfoPageIcon" alt="To Vendor Page" width="24" height="24"></a>
+                </div>
+            </div> 
+
+            <!--Insert partial template for the footer-->
+            <%- include ("partials/HandyNavFooter.ejs") %>
+        </div>
+    </body>
+</html>

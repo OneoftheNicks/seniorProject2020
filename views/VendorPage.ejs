@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Vendor Info</title>
+        <link rel="stylesheet" href="Master_style.css" text="text/css">
+    </head>
+    <body>
+        <div class="banner">
+            <img src="RawText_HandyMan.png" width="450" height="150" style="margin-left: 125px;">
+        </div>
+        <!-- Output the info of the param id vendor -->
+        <div class="subMain">
+            <!-- all of this can go in main because it's just a static page with route parameters -->
+            <h1>Say Hello to: <br> <%= locals.coName %></h1>
+            <h2>Specializes as a:</h2>
+            <ui>
+                <li><span style="font-weight: bold;"><%= locals.venPro1 %></span></li>
+                <li><span style="font-weight: bold;"><%= locals.venPro2 %></span></li>
+                <li><span style="font-weight: bold;"><%= locals.venPro3 %></span></li>
+            </ui>
+            <hr>
+            
+            <h2>Get in Touch</h2>
+            <p>
+                <span style="font-weight:bold;">Location:</span>
+                <%= locals.venState %> - <%= locals.venCity %> <br> 
+                <span style="font-weight:bold;">Contact:</span>
+                <%= locals.venPhone %> - <%= locals.venEmail %>
+                <hr>
+            </p>
+
+            <!-- Put the summary here -->
+            <h2>Description</h2>
+            <p><%= Description %></p>
+            <br> <hr> <br>
+            
+            <p>To send people to this page as a seperate link, copy this url: <br>
+                 https://sacred-tenure-334200.uk.r.appspot.com/VendorPage/<%=venID%></p>
+            <!-- MAke sure action links are seeable -->
+            <div class="searchResult" style="width: 75px; border-radius: 15px;">
+            <a href="/Home"><img src="Back.png" id="BackIcon" alt="Back to Search" width="24" height="24"></a>
+            <a href="/ScheduleMe/<%= locals.venID %>"><img src="ScheduleMe.png" id="ScheduleIcon" alt="Schedule a job for this vendor" width="24" height="24"></a>
+            </div>  
+        </div>
+    </body>
+</html>

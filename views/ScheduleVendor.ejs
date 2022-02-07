@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Schedule</title>
+        <link rel="stylesheet" href="Master_style.css" text="text/css">
+    </head>
+    <body>
+        <!-- Include sidebar partial -Based on user type -->
+        <div class="banner">
+            <img src="RawText_HandyMan.png" width="450" height="150" style="margin-left: 125px;">
+            
+            <!-- float current logged in user next to the logo -->
+            <p style="font-weight: bold;">Currently logged in as user: 
+                <%= locals.user ? user : "Not logged in" %> <br>
+                Session ID is <%= locals.mySesh ? mySesh : "No Session" %> <br>
+            </p>        
+            <!-- Include sidebar partial -Based on user type -->
+            <% if(locals.accountType == 1) { %>
+            <%- include ("partials/Sidebar.ejs") %>
+            <% } %>
+            <% if(locals.accountType == 2) { %> 
+                <%- include ("partials/VendorSidebar.ejs") %>
+            <% } %>
+        </div>
+        <div class="main">
+            <h1>Scheduling</h1>
+            
+            <p>Schedule a time you want to reserve the vendor. <br>
+            Note; dates that are <span style="color: crimson">in red* are NOT available</span><br>
+            Dates that are <span style="color: coral; font-weight: bold;">in orange* </span> 
+            means one or more people have sent requests for those dates and the vendor has not accepted any of them yet.
+            </p> <br>
+            
+            <!-- Display the calendar to the user and then put in the date fields -->
+            <%- locals.calen %>
+
+            <br>
+            <!-- allow user to navigate through months -->
+            <form action="/MonthNav" method="post">
+                <label for="newTime">Navigate to a different month</label>
+                <input type="month" name="newTime" id="newTime">
+                <input type="hidden" name="hidVenID" id="hidVenID" value="<%=venID%>">
+                <input type="submit">
+            </form>
+
+            
+            <!-- <%= locals.avail ? "Slot is open" : "Not available to Schedule" %> -->
+            <% if(locals.avail == false) { %>
+                <span style="font-weight: bold; color: crimson;">Reservation is unavailable</span>
+            <% } %>
+            
+            <br> <br> <hr>
+            <!-- post form to enter a date range -->
+            <h2>Want to make an appointment?</h2>
+            <form action="/Appoint" method="post">
+                <label for="starting">Pick a starting date</label>
+                <input type="date" id="starting" name="starting"> <br> 
+                <label for="ending">Pick an end date (If it's for one day, just re-enter the starting date)</label>
+                <input type="date" id="ending" name="ending"> <br> <br>
+                <label for="city">Enter the city the job will take place in:</label>
+                <input type="text" name="city"> <br>
+                <label for="address">Enter the Address of the Jobsite:</label>
+                <input type="text" name="address"> <br>
+                <label for="JobSummary">What is the request? Enter anything in here you want the vendor to know</label> <br>
+                <textarea name="JobSummary" rows="15" cols="55"></textarea> <br>
+                <input type="submit" value="Schedule Me">
+            </form>
+            <br>
+
+            <p>If you have any extenuating circumstances and would like to reserve a closed spot, please call the associated vendor</p>
+            <br>
+            <div class="searchResult" style="width: 45px; border-radius: 15px;">
+                <a href="/Home"><img src="Back.png" id="BackIcon" alt="Back to Search" width="24" height="24"></a>
+            </div>  
+        </div>
+    </body>
+</html>

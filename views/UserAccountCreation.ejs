@@ -1,0 +1,54 @@
+<!-- HTML User Account Creation Page by Nick Thomas-->
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Create User Account</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="Master_style.css" text="text/css">
+    </head>
+    <body>
+        <div class="banner">
+            <img src="RawText_HandyMan.png" width="450" height="150" style="margin-left: 125px;">
+        </div>
+        <div class="subMain">
+            <h1>Create your User Account</h1>
+            <p>Get started by making an account for you to browse, favorite, and utilize vendors listed on the site.<br>
+                There are more fields to edit on your account page once you've made one. Here are the basics:
+            </p>
+            <p>Note that fields with<span style="color: crimson;"> red text*</span> must be filled out.</p>
+            <!--Define form method as POST for use by Express-->
+            <!--Action = app.get route-->
+            <form class="accountForm" action="/UserCreation" method="post">
+                <fieldset>
+                    <!--label for= specifies the reference ID of the input field-->
+                    <label for="username" style="color: crimson;">Enter a Username*</label>
+                    <input type="text" id="username" name="username" autofocus required> <br>
+                    <label for="userPassword" style="color: crimson;">Enter a Password*</label>
+                    <input type="password" id="userPassword" name="userPassword" required> <br>
+                    <label for="firstName" style="color: crimson;">Enter your First Name*</label>
+                    <input type="text" id="firstName" name="firstName"> <br>
+                    <label for="birth">Enter your Date of Birth</label>
+                    <input type="date" id="birth" name="birth"> <br>
+
+                    <label for="gender">Enter your Gender</label>
+                    <!-- Use the select tag as a drop down instead -->
+                    <select name="gender" id="gender">
+                        <option name="null" value="" selected>Select a gender option</option>
+                        <option name="male" value="Male">Male</option>
+                        <option name="female" value="Female">Female</option>
+                        <option name="nb" value="NB">Non-Binary</option>
+                    </select>
+                    <br>
+                    <!--Submit the following data above-->
+                    <input type="submit" value="Create">
+                </fieldset>
+            </form>
+
+            <br>
+            <a href="/Login">Go to Login Page</a> <br>
+            <!--Insert partial template for the footer-->
+            <%- include ("partials/HandyNavFooter.ejs") %>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dynamic back to front</title>
+    </head>
+    <body>
+        <p> hello<%=cliData[0]%></p>
+        <h1>Here are the Client's first names</h1>
+        <ui>
+        <% cliData.forEach(function(x) { %>
+            <li><%= x %></li>
+        <% }); %>
+        </ui>
+        <h1>Here are the Vendor's first names</h1>
+        <ui>
+            <% venData.forEach(function(x) { %>
+                <li><%= x %></li>
+            <% }); %>
+        </ui>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Login to User Account</title>
+        <link rel="stylesheet" href="Master_style.css" text="text/css">
+    </head>
+    <body>
+        <div class="banner">
+            <img src="RawText_HandyMan.png" width="450" height="150" style="margin-left: 125px;">
+            
+            <!-- float current logged in user next to the logo -->
+            <p style="font-weight: bold;">Currently logged in as user: 
+                <%= locals.user ? user : "Not logged in" %> <br>
+                Session ID is <%= locals.mySesh ? mySesh : "No Session" %> <br>
+            </p>    
+        </div>
+        <div class="subMain">
+            <!-- If redirected from the log out there will be this text here -->
+            <% if(locals.logout) { %>
+            <p> <%= logout %> </p>
+            <% } %>
+            <h1>Login to Your Account</h1>
+            <p>Here you can log into either your normal user account or your handyman account if you have one! <br>
+                Make sure you enter your information in the correct login fields.</p>
+
+            <!-- here I can put the forms side be side for now, this indicates the two portals -->
+            <div id="loginFormsBySide">
+                <form class="accountForm" style="width: 500px; display: inline-block;" action="/UserLogin" method="post">
+                    <h2>User Login</h2>
+                    <fieldset style="margin-left: 150px;">
+                        <input type="text" name="username" id="username" placeholder="Enter Username">
+                        <br>
+                        <input type="password" name="password" id="password" placeholder="Enter Password">
+                        <br>
+                        <input type="submit" value="Login to User Account">
+                    </fieldset>
+                    <p>Don't have a user account? <br> <a href="/UserCreation">Create your User account here</a></p>
+                </form>
+                
+                <!-- same html but post method is for vendor auth -->
+                <form class="accountForm" style="width: 500px; display: inline-block;" action="/VendorLogin" method="post">
+                    <h2>Vendor Login</h2>
+                    <fieldset  style="margin-left: 150px;">
+                        <input type="text" name="Vusername" id="Vusername" placeholder="Enter Username">
+                        <br>
+                        <input type="password" name="Vpassword" id="Vpassword" placeholder="Enter Password">
+                        <br>
+                        <input type="submit" value="Login to Vendor Account">
+                    </fieldset>
+                    <p>Don't have a vendor account? <br> <a href="/VendorCreation">Create your Vendor account here</a></p>
+                </form>
+            </div>
+            
+            <!-- Display for wrong login -->
+            <br>
+            <% if(locals.logErr) { %>
+                <span style="font-weight: bold; color: crimson; font-size: large;">Username or password is incorrect</span>
+            <% } %> <br>
+
+            <!--Insert partial template for the footer-->
+            <%- include ("partials/HandyNavFooter.ejs") %>
+        </div>
+    </body>
+</html>

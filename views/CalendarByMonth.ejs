@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Check the calendar</title>
+        <link rel="stylesheet" href="Master_style.css" text="text/css">
+    </head>
+    <body>
+        <!-- Check to see if the ejs works as an insert of raw html -->
+        <!-- Note that the %= is escaped from html and %- is unescaped 
+        Be carefull because in comments counts too, use %# for a comment with ejs -->
+        <div class="main">
+        <%- locals.theCal %>
+
+        <h2>Now let's see a formatted one</h2>
+        <%- locals.newCal %>
+        </div>
+    </body>
+</html>
