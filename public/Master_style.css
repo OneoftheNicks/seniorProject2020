@@ -1,0 +1,181 @@
+/* CSS for the whole handyman solution: done by Nick Thomas
+/*
+.banner 
+{
+    background-image: url("HandyBannerImage-Small.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 500px, 1000px;
+    margin: 0px;
+}
+*/
+
+body
+{
+    background-image: url("ToolPatternBG.png");
+    background-origin: padding-box;
+    background-position: center;
+    text-align: center;
+    font-size: 14px;
+    margin: 0%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main
+{
+    border-radius: 15px;
+    border-color: black;
+    border-style: solid;
+    margin-left: 150px;
+    margin-top: 20px;
+    margin-right: 25px;
+    margin-bottom: 55px;
+    background-color: rgba(255,255,255,0.6);
+    /*background-color: rgba(99, 146, 214, 0.9);*/
+    border-color: rgba(99, 146, 214, 0.75);
+}
+
+/*SubMain for pages without the sidebar or banner, this is done to fix the margins */
+.subMain
+{
+    margin: 75px;
+    border-radius: 15px;
+    border-color: black;
+    border-style: solid;
+    background-color: rgba(255,255,255,0.6);
+    /*background-color: rgba(99, 146, 214, 0.9);*/
+    border-color: rgba(99, 146, 214, 0.75);
+}
+
+.accountForm
+{
+    border-radius: 15px;
+    background-color: rgba(99, 146, 214, 0.75);
+    border-color: white;
+    border-style: solid;
+    padding: 20px;
+    width: 800px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.accountForm fieldset
+{
+    border: 0;
+    text-justify: auto;
+    text-align: justify;
+    font-size: larger;
+    font-weight: bold;
+    margin-left: 50px;
+    margin-right: auto;
+}
+
+.searchResult
+{
+    border-radius: 15px 50px;
+    background-color: rgba(99, 146, 214,.7);
+    border-color: white;
+    border-style: solid;
+    padding: 20px;
+    width: 500px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+.actions img:hover
+{
+    filter: opacity(.5) drop-shadow(0 0 0 springgreen);
+}
+.actions input:hover
+{
+    filter: opacity(.5) drop-shadow(0 0 0 yellow);
+}
+*/
+
+#BookmarkIcon:hover
+{
+    filter: opacity(.5) drop-shadow(0 0 0 yellow);
+}
+
+#InfoPageIcon:hover
+{
+    filter: opacity(.5) drop-shadow(0 0 0 springgreen);
+}
+
+#BackIcon:hover
+{
+    filter: opacity(.5) drop-shadow(0 0 0 tan);
+}
+
+#ScheduleIcon:hover
+{
+    filter: opacity(.5) drop-shadow(0 0 0 magenta);
+}
+
+.sidebar 
+{
+    /* We want the side bar to be on the screen at all times so we should make it fixed */
+    width: 125px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    /* orginal color rgba(99, 146, 214, 0.75); */
+    background-color: rgba(99, 146, 214, 0.75);
+    /* background-image: inherit; */
+    /*The inherit property is useful for stacked divs */
+    list-style-type: none; /* Remove bullet points from the list */
+    text-align: center;
+}
+  
+.sidebar a 
+{
+    display: block; 
+    padding: 16px; 
+    transition: all 0.3s ease;
+    color: white; 
+    font-size: 14px; 
+}
+
+.sidebar a:hover
+{
+    background-color: #000;
+}
+
+.spaceinbar
+{
+    height: 150px;
+}
+
+.banner
+{
+    /*background-image: url("StockBlueprint_Overlay.png"); */
+    background-color: rgba(99, 146, 214, 0.75);
+    /* dimesions set to image size */
+    width: 100%;
+    height: 150px;
+    text-align: left;
+}
+
+/* floats the text logo to the left */
+.banner img
+{
+    float: left;
+}
+
+.banner p
+{
+    float: right;
+    margin-right: 50px;
+    margin-top: 50px;
+    border-style: dotted;
+    border-color: rgba(99, 146, 214, 0.75);
+    background-color: rgba(255,255,255,0.6);
+    text-align: center;
+}
