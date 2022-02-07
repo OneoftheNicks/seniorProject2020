@@ -91,8 +91,8 @@ var con = mysql.createPool(
     //to swap from local to deployment, comment out either the host or socketPath respectively
     //host: DB_HOST || "34.85.241.41",
     user: DB_USER || "root",
-    password: DB_PASS || "CheeseBag39!",
-    datebase: DB_NAME || "FullCapstoneWorld",
+    password: DB_PASS || "***", //hidden
+    datebase: DB_NAME || "***", //hidden
     socketPath: "/cloudsql/sacred-tenure-334200:us-east4:capstonefall21",
 });
 
