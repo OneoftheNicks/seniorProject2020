@@ -3,7 +3,7 @@ Final project for my capstone course at Farmingdale State College.
 ---
 **High Concept:**
 The project concept was a "Handy Man Finder"; essentially a webhub for users to search and schedule home development and repair services in order to start a contract job. 
-This was done with local businesses in mind but is mainly just a proof of concept, and was mainly done as a way to get into web development. 
+This was done with local businesses in mind but is honestly just a proof of concept, and was mainly done as a way to get into web development. 
 
 **Tech Used:**
 The backend was done with just node.js and mySQL while the frontend was EJS templating(+ vanilla HTML + CSS) with the node-express framework for the routes. 
