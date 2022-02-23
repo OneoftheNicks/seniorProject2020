@@ -7,7 +7,7 @@ This was done with local businesses in mind but is honestly just a proof of conc
 
 **Tech Used:**
 The backend was done with just node.js and mySQL while the frontend was EJS templating(+ vanilla HTML + CSS) with the node-express framework for the routes. 
-I had this project live on Google Cloud for a bit but took it down a month after my final presentation was done. Hosting it on google was actually a lot harder than I expected, as most aspects of the project had to be refactored. Even after that, many different google services had to used at once, which was a bit annoying to figure out. 
+I had this project live on Google Cloud for a bit but took it down a month after my final presentation was done. Hosting it on google was actually a lot harder than I expected, as most aspects of the project had to be refactored. On top of that many different google services had to be used at once, which was a bit annoying to figure out. 
 
 ____
 
