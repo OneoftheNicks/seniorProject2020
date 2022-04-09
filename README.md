@@ -1,7 +1,9 @@
 # seniorProject2021
 Final project for my capstone course at Farmingdale State College.
 ---
-**Video Demo can be found here:** [![Watch here](http://img.youtube.com/vi/JL1RKCNN0Qk/0.jpg)](http://www.youtube.com/watch?v=JL1RKCNN0Qk)
+**Video Demo can be found here:**
+
+[![Watch here](http://img.youtube.com/vi/JL1RKCNN0Qk/0.jpg)](http://www.youtube.com/watch?v=JL1RKCNN0Qk)
 
 ---
 **High Concept:**
